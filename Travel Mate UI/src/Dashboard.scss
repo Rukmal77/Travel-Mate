@@ -1,0 +1,198 @@
+// Dashboard.scss
+
+$primary-color: #4b6cb7;
+$accent-color: #00a8ff;
+$text-color: #333;
+$background-color: #f4f6f9;
+$sidebar-width: 250px;
+$sidebar-background-color: linear-gradient(rgb(49, 73, 209) 20%,rgb(18, 188, 255)  40%);
+$header-background-color: #ffffff;
+ 
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+
+  .sidebar {
+    width: $sidebar-width;
+    background: $sidebar-background-color;
+    color: #fffefe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    transition: width 0.3s ease;
+    justify-content: space-between; // Add this to space items equally
+
+    .app-name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .sidebar-options {
+      list-style: none;
+      padding: 0;
+      width: 100%;
+
+      .sidebar-option {
+        display: flex;
+        align-items: center;
+        padding: 15px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        font-size: 18px;
+
+        &:hover {
+          background: rgb(252, 252, 252); // Adjusted hover color to match the gradient
+          transform: translateX(10px);
+          color: $accent-color;
+        }
+
+        i {
+          margin-right: 15px;
+        }
+
+        span {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .sidebar-logout {
+      width: 100%;
+      padding: 15px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s, transform 0.3s;
+      font-size: 18px;
+     
+
+      &:hover {
+        background: rgb(255, 252, 251); // Adjusted hover color to match the gradient
+        transform: translateX(10px);
+        color: $accent-color;
+      }
+
+      i {
+        margin-right: 15px;
+      }
+
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 40px;
+    background-image: url('./images/bkimg.jpg');
+    //background: url('D:/resturent-landing-page-react-master/Final Food Whisper/Food Whisper UI/src/images/bkimg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.5); // Glass-like effect
+      backdrop-filter: blur(1px); // Glass-like effect
+      z-index: 1;
+    }
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: rgb(6, 164, 255); // Updated color for h1
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-top: 10px;
+      color: $text-color;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .user-info {
+      background-color: rgba(255, 255, 255, 0.7); // Glass-like effect
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      animation: slideIn 1s ease-in-out;
+      backdrop-filter: blur(10px); // Glass-like effect
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .sidebar {
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px;
+
+      .app-name {
+        font-size: 20px;
+      }
+
+      .sidebar-options {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        .sidebar-option {
+          padding: 10px;
+          flex: 1;
+          justify-content: center;
+        }
+      }
+    }
+
+    .main-content {
+      padding: 20px;
+
+      .user-info {
+        padding: 15px;
+      }
+    }
+  }
+}

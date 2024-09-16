@@ -1,0 +1,82 @@
+@import '../index.scss';
+
+.latest-reviews {
+  padding: 3rem;
+  background-color: var(--light-background-color); // Use a light background color to distinguish this section
+  border-radius: 1rem;
+  box-shadow: 0rem 0.125rem 0.5rem rgba(0, 0, 0, 0.15);
+  margin: 5rem 0;
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 7rem;
+      margin: 1rem auto;
+      height: 0.3rem;
+      background: var(--primary-color);
+    }
+  }
+
+  .reviews-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    th, td {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    th {
+      background-color: var(--primary-color);
+      color: var(--white);
+      font-size: 1.5rem;
+    }
+
+    td {
+      background-color: var(--white);
+      color: var(--dark-grey);
+      font-size: 1.2rem;
+
+      &:first-child {
+        border-left: 0;
+      }
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+
+    tr {
+      &:last-child td {
+        border-bottom: 0;
+      }
+
+      &:hover {
+        background-color: var(--light-grey);
+      }
+    }
+
+    .rating {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        color: var(--primary-color);
+        margin: 0 0.2rem;
+      }
+    }
+  }
+}
